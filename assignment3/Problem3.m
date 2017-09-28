@@ -33,7 +33,7 @@ pause;
 
 %-- B
 
-lambda = sum(poisson)/length(poisson);
+lambda = sum(poisson)/length(poisson)
 
 %scatter([0:1:length(poisson)-1], poisson);
 
@@ -48,6 +48,7 @@ scatter(x, p);
 hold on;
 plot([lambda lambda], [0 max(p)], '--');
 
+'b'
 pause;
 hold off;
 
