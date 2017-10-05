@@ -1,9 +1,10 @@
 load housing_test.txt;
 load housing_train.txt;
 
-%g = init_progress_graph();
+g = init_progress_graph();
+g.pause=0.1;
 
-train_trials = 1000;
+train_trials = 100000000;
 
 test  = housing_test;
 train = housing_train;
@@ -22,31 +23,7 @@ mse_train = sum((y_train - train_n(:,14)).^2)/length(train_n(:,14));
 mse_test  = sum((y_test - test_n(:,14)).^2)/length(test_n(:,14));
 g = add_to_progress_graph(g, 0, mse_train, mse_test);
 
-for i=1:train_trials%length(train_n)
-    ind = mod(i,length(train_n(:,:)))+1;
-    alpha = 2/i^3;
-    fxw = LR_predict(train_n(ind,1:13),w);
-    w = (w' + alpha*(train_n(ind,14) - fxw)*train_n(ind,1:13))';
-    if mod(i, 50) == 0
-        %{
-        y_test = LR_predict(test_n(:,1:13), w);
-        y_train = LR_predict(train_n(:,1:13),w);
-        mse_train = sum((y_train - train_n(:,14)).^2)/length(train_n(:,14));
-        mse_test  = sum((y_test - test_n(:,14)).^2)/length(test_n(:,14));
-        g = add_to_progress_graph(g, i, mse_train, mse_test);
-        w
-        %pause;
-        %}
-    end
-    %{
-        y_test = LR_predict(test_n(:,1:13), w);
-        y_train = LR_predict(train_n(:,1:13),w);
-        mse_train = sum((y_train - train_n(:,14)).^2)/length(train_n(:,14))
-        mse_test  = sum((y_test - test_n(:,14)).^2)/length(test_n(:,14))
-        pause;
-    %}
-end
-
+online_gradient_descent();
 
 y_test = LR_predict(test_n(:,1:13), w);
 y_train = LR_predict(train_n(:,1:13),w);

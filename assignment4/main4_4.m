@@ -6,7 +6,7 @@ test  = housing_test;
 
 train_ex = extendx(train(:,1:13));
 
-w = train_ex\train(:,14)
+w = train_ex\train(:,14);
 
 test_ex = extendx(test(:,1:13));
 

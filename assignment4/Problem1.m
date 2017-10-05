@@ -11,10 +11,10 @@ corrs14 = targetcorr(:,14)
 for i=1:13
     figure();
     scatter(housing(:,i), housing(:,14));
-    %pause;
+    pause;
 end
 
-%pause;
+pause;
 
 close all;
 
