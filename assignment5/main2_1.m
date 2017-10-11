@@ -7,3 +7,9 @@ for a=1:8
     figure()
     histogram_analysis(class0(:,a));
 end
+
+
+for a=1:8
+    figure()
+    histogram_analysis(class1(:,a));
+end
