@@ -16,9 +16,10 @@ labels = (pima_test(:,9) == 1);
 
 [X,Y,T,AUC] = perfcurve(labels, scores, 1);
 plot(X,Y);
-hold on;
-plot([0 1], [0 1]);
-plot([AUC AUC], [0 1]);
+%plot([0 1], [0 1]);
+%plot([AUC AUC], [0 1]);
+
+AUC
 
 xlabel('False positive rate')
 ylabel('True positive rate')
@@ -45,8 +46,8 @@ figure();
 [X,Y,T,AUC] = perfcurve(labels, classes, 1);
 plot(X,Y);
 hold on;
-plot([0 1], [0 1]);
-plot([AUC AUC], [0 1]);
+%plot([0 1], [0 1]);
+%plot([AUC AUC], [0 1]);
 xlabel('False positive rate')
 ylabel('True positive rate')
 title('ROC for Classification by Naive Bayes')
