@@ -27,7 +27,7 @@ for k = 1:1:K                       %%% number of steps
         err = (y - f) * x;          % error (on-line gradient)
         sum_err = sum_err + err;    % update batch error function gradient
     end
-    alpha = 0.01;
+    alpha = 2/sqrt(k);
     W = W + (alpha * sum_err);
     
     if mod(k,50) == 0
