@@ -1,0 +1,129 @@
+Problem 1
+Part a
+wb_default:
+- test: 0.2009, train: .2356
+wb_default_20-20:
+- show 20, max fail 20
+- test: 0.1965, train: .2319
+wb_cgb:
+- show 20, max fail 20
+- test: 0.2052, train: .2356
+wb_default_200-200:
+- show 200, max fail 200
+- test: 0.2052, train: .2393
+
+Part b
+wb_cgf: 
+- test: .2140 train: .2375
+wb_bfg:
+- .2402, .2393
+wb_cgb:
+- .2183, .2356
+wb_cgp:
+- .2183, .2245
+wb_gda:
+- .2009, .2263
+wb_gdm: (max epoch reached)
+- .2314, .2820
+wb_gdx:
+- .2052, .2282
+wb_lm: (best consistent)
+- .1921, .2152
+wb_oss:
+- .1965, .2263
+wb_csg:
+- .1965, .2282
+
+part c
+compare to default best logistic:
+  gdb, lm, oss, csg worked better in best-of-5 runs, train and test.  
+
+type ||           2         ||           3         ||          5          ||        10          
+cgf   || .2140; .2375 || .2140; .2356 || .2009, .2263 || .2140, .2189
+lm    || .1878; .2245 || .1965; .2245 || .1965; .2226 || .1921; .2282
+oss  || .2183; .2338 || .2052; .2245 || .2183; .2356 || .2096; .2245
+scg  || .1965; .2375 || .2052; .2319 || .2052; .2338 || .1921; .2115
+bfg   || .2096; .2245 || .2052; .2338 || .2052; .2301 || .2009; .2245
+
+???
+???
+
+Problem 2
+part a:
+unmodified:
+	def: 0.2751; max25: 0.2576
+
+part b:
+15 splits max:
+	0.2795
+20:	0.2445
+10:	.2838
+30:	.2620
+35:	.2838
+
+MergeLeaves on changed nothing.
+MinParentSize: 20
+15:	.2314
+20:	.2358
+25:	.2402
+
+MinParentSize: 25
+20:	.2358
+25:	.2402
+
+MinParentSize: 30
+15:	.2227
+20:	.2358
+25:	.2707
+
+MinLeafSize: 5 (parent 20)
+15:	.2358
+20:	.2445
+25:	.2489
+
+MinLeafSize: 10 (parent 20)
+15:	.2358
+20:	.2489
+25:	.2489
+
+MinLeafSize: 15 (parent 20)
+10:	.2838
+15:	.2227
+20:	.2533
+25:	.2445
+
+Prune 1
+Leaf 10, parent 20
+15:	.2314
+20:	.2227
+25:	.2227
+
+Leaf 15, parent 20
+15:	.2314
+20:	.2227
+25:	.2140
+
+Prune 2
+Leaf 10, parent 20
+10:	.2314
+15:	.2314
+20:	.2314
+25:	.2314
+
+best overall
+.2009 - max 35, leaf 7 parent 20 prune 1
+
+
+Problem 3
+part a
+3: .2664
+1: .2969
+5: .2227
+7: .2489
+
+part b
+normalized with (x-mu)/sigma
+3: .5238
+1: .5780
+5: .5599
+7: .5599
