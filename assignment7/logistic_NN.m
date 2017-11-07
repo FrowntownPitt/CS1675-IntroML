@@ -32,8 +32,8 @@ net=patternnet(10);
 %% sets the parameters of the NN model
 %% see the NN toolbox documentation
 net.trainParam.epochs = 2000;
-net.trainParam.show = 200;
-net.trainParam.max_fail=200;
+net.trainParam.show = 20;
+net.trainParam.max_fail=20;
 %%% use conjugate gradient to train the model
 net.trainFcn='traincgf';%'traincgb';%
 
@@ -55,4 +55,5 @@ class_error_test=sum(abs(y_test-round(res_test)'))/size(res_test,2)
 %%% 'Mean squared error (mse) on the testing data'
 mse_error_test = perform(net,y_test',res_test)
 
-wb = getwb(net);
+weight = cell2mat(net.IW);
+bias = cell2mat(net.b);
