@@ -13,8 +13,9 @@ features = wrapper_function(data, '[@Log_regression,10]')
 % 11, 30, 32, 8
 
 if length(features) < 4
-    %features = [11 30 32 8];
-    features = [19 3 52 30 9];
+    features = [11 30 32 8];
+    %features = [19 3 52 30 9];
+    %features = [29,32,30,9,1];
 end
 
 test_y_full = Log_regression(tr_x, tr_y, test_x, 500);
@@ -30,7 +31,7 @@ TP = sum(Y(errs == 0) == 1);
 TN = sum(Y(errs == 0) == 0);
 SENS = TP/(TP + FN);
 SPEC = TN/(TN + FP);
-mis = (FP + FN)/(TP + TN);
+mis = (FP + FN)/(FP + FN + TP + TN);
 
 [TP FP FN TN mis SENS SPEC]
 
@@ -43,6 +44,6 @@ TP = sum(Y(errs == 0) == 1);
 TN = sum(Y(errs == 0) == 0);
 SENS = TP/(TP + FN);
 SPEC = TN/(TN + FP);
-mis = (FP + FN)/(TP + TN);
+mis = (FP + FN)/(FP + FN + TP + TN);
 
 [TP FP FN TN mis SENS SPEC]
