@@ -63,7 +63,7 @@ for k = 1:k_max,
    test_y  = test_y + alpha_k*(2*Ck(M+1:end)-1);
    
 %   if (k/IterDisp == floor(k/IterDisp)),
-      disp(['Completed ' num2str(k) ' boosting iterations'])
+      %disp(['Completed ' num2str(k) ' boosting iterations']);
  %  end
    
 end

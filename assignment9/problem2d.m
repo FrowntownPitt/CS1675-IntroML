@@ -5,6 +5,7 @@ class = class_labels;
 
 clear idx_save;
 
+k=2;
 n = 40;
 
 for x=1:30

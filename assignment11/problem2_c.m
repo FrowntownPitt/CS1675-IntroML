@@ -2,7 +2,7 @@ load train_data.txt;
 load test_data.txt;
 load Data.txt;
 
-pcs = 5;
+pcs = 7;
 
 data = Data;
 X = train_data(:,1:70);
